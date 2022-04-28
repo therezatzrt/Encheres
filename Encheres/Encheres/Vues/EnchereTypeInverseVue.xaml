@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Enchères Inverse"
+
+             x:Class="Encheres.Vues.EnchereTypeInverseVue">
+    <ContentPage.Content>
+        <ScrollView x:Name="remote">
+
+
+
+            <StackLayout BackgroundColor="White">
+                <Label Text="Enchères Inverses" TextColor="White" FontSize="22" HorizontalTextAlignment="Center" BackgroundColor="#2E9AFE" WidthRequest="40" HeightRequest="40" Margin="0,1,0,0" />
+
+
+
+                <Label Text="{Binding MonEnchere.LeProduit.Nom}"
+                   FontAttributes="Bold,Italic"
+                   FontSize="20"
+                   Margin="20"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+                <Frame
+                HeightRequest="380" WidthRequest="280"
+                BackgroundColor="white" Padding="0"
+                HasShadow="True" Margin="10" CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Image Source="{Binding MonEnchere.LeProduit.Photo}"
+                           VerticalOptions="FillAndExpand"
+                           Aspect="AspectFill"/>
+                    </StackLayout>
+
+                </Frame>
+                <Label Text="{Binding MonEnchere.Datedebut, StringFormat='Date Début: {0}'}"
+                TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
+                <ContentView>
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="100" BackgroundColor="AliceBlue">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackLayout Orientation="Horizontal" Spacing="8">
+                                <Label Text="Temps restant" HorizontalOptions="CenterAndExpand"  FontSize="15" TextColor="Black"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal"  Grid.Row="1" HorizontalOptions="CenterAndExpand" Spacing="30">
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantJour}" FontSize="35" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label Text="JOURS" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantHeures}" FontSize="35" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label Text="HEURES" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantMinutes}" FontSize="35" FontAttributes="Bold" TextColor="black" HorizontalOptions="End"/>
+                                    <Label Text="MINUTES" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantSecondes}" FontSize="35" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label Text="SECONDES" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <ContentView  IsVisible="{Binding VisibleGagnant}">
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="200" BackgroundColor="#D8D8D8">
+                        <Grid RowDefinitions="30,60,100" ColumnDefinitions="*" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                            <Label  Grid.Row=" 0" Grid.Column="0" Text="Le gagnant est :" HorizontalOptions="CenterAndExpand"  FontSize="22" TextColor="Black"/>
+                            <Label  Grid.Row=" 1" Grid.Column="0" Text="{Binding UnUser.Pseudo}" HorizontalOptions="Center"  FontSize="40" TextColor="Black" FontAttributes="Bold,Italic"/>
+                            <Image  Grid.Row=" 2" HeightRequest="300" WidthRequest="300" HorizontalOptions="Center" Source="{Binding UnUser.PhotoStream}"></Image>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <ContentView IsVisible="{Binding VisibleSaisieEnchere}">
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="120" BackgroundColor="#D8D8D8">
+                        <Grid RowDefinitions="2*,2*" ColumnDefinitions="180,100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                            <Label  Grid.Row=" 0" Grid.Column="0" Text="Votre proposition :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black"/>
+                            <Label Grid.Row=" 0" Grid.Column="1" Text="{Binding MonEnchere.PrixDepart, StringFormat='{0} €'}" FontSize="25" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+
+                            <Entry x:Name="SaisieEnchere" Grid.Row=" 1" Grid.Column="0" HorizontalOptions="StartAndExpand" Placeholder="Saisir enchere" PlaceholderColor="Black" TextColor="Black"/>
+                            <Button x:Name="ButtonValiderEnchere" HorizontalOptions="StartAndExpand" Clicked="ButtonValiderEnchere_Clicked"  BackgroundColor="#BDBDBD " Image="send_.png" Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <Frame
+                    HeightRequest="50" WidthRequest="600"
+                BackgroundColor="white" Padding="10"
+                HasShadow="True" Margin="20" CornerRadius="15"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout >
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Button Text="retour arrière" ImageSource="https://img.icons8.com/bubbles/100/000000/back.png" CornerRadius="10" Clicked="GoBack_Clicked" Margin="0,-2,0,0" />
+
+                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png"  Clicked="Remonte_Clicked" CornerRadius="10"  Grid.Column="2" Margin="0,-2,0,0"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

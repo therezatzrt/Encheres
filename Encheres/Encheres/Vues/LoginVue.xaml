@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Encheres.Vues.LoginPageVue"
+             Title="Page de Connexion"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1C375C">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0,20,0,0
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                0,0,0,0
+            </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Margin="0,30" Source="Logo.png" Aspect="AspectFit" HeightRequest="140" WidthRequest="80"></Image>
+            <Frame Grid.Row="1" Margin="0,0,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" HeightRequest="700">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,50,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"  Text="Bienvenue aux enchères SIO!" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" Margin="0,-50,0,0"  HorizontalTextAlignment="Center"></Label>
+                    <Label Grid.Row="1" Margin="0,-10,0,0" Text="Connectez-vous a votre compte" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Entry x:Name="SaisieIdentifiant" Unfocused="SaisieIdentifiant_Unfocused" Grid.Row="2" Placeholder="Adresse mail" Text="{Binding Email}" PlaceholderColor="Black" TextColor="Black" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry x:Name="SaisieMdp" Unfocused="SaisieMdp_Unfocused" Grid.Row="3" Placeholder="Mot de passe" Text="{Binding Password}" PlaceholderColor="Black" TextColor="Black" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Button Grid.Row="4" Text="Se connecter" BackgroundColor="#1C375C" CornerRadius="20"  Command="{Binding CommandeButtonAuthentification}"></Button>
+                    <Label Grid.Row="5" Text="Vous n'avez pas de compte? Inscrivez-vous ici" TextColor="Black" Margin="0,20,0,0"  HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding CommandeButtonRegister}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

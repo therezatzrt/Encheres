@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             Title="Page gagnant"
+             x:Class="Encheres.Vues.GagnantVue">
+    <ContentPage.Content>
+        <ScrollView x:Name="remote">
+            <StackLayout>
+                <Grid>
+                <xct:MediaElement x:Name="BgVideo" Source="ms-appx:///Gagnant.mp4" ShowsPlaybackControls="False"
+                          IsLooping="True"  Aspect="AspectFill" AutoPlay="True"
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Color="Transparent"  Offset="0"/>
+                            <GradientStop Color="#2E4159"  Offset="0.9"/>
+                            <GradientStop Color="#2E4159"  Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <StackLayout>
+                    <Label Text="Le gagant est :" HorizontalOptions="Center" FontAttributes="Bold"  FontSize="35"  TextColor="White" Margin="0,160,0,0"/>
+                </StackLayout>
+
+                <Grid>
+                    <StackLayout>
+                        <Frame  BackgroundColor="Transparent"  BorderColor="LightGray" CornerRadius="20" Margin="40,260,40,40">
+                            <StackLayout>
+                                <Frame Padding="0" CornerRadius="100" HeightRequest="200"   WidthRequest="200" HorizontalOptions="Center" BackgroundColor="Transparent"  IsClippedToBounds="True">
+                                    <Image Source="{Binding UnUser.PhotoStream}"/>
+                                </Frame>
+                                <Frame Padding="0" CornerRadius="100" HeightRequest="300"   WidthRequest="300" HorizontalOptions="Center" BackgroundColor="Transparent"  IsClippedToBounds="True">
+                                    <Image IsVisible="{Binding VisiblePhotoStream}" Source="user.png"/>
+                                </Frame>
+                                <Label Text="{Binding UnUser.Pseudo}" HorizontalOptions="Center" FontSize="35" TextColor="White"/>
+                                <Label IsVisible="{Binding VisibleEtatGagant}" Text="Il n'y a pas de gagnant pour cette enchhère" FontAttributes="Bold"  FontSize="35"  TextColor="White" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+                <Frame
+                    HeightRequest="50" WidthRequest="600"
+                BackgroundColor="white" Padding="10"
+                HasShadow="True" Margin="20" CornerRadius="15"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout >
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Button Text="retour arrière" ImageSource="https://img.icons8.com/bubbles/100/000000/back.png" CornerRadius="10" Clicked="GoBack_Clicked" Margin="0,-2,0,0" />
+
+                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png"  Clicked="Remonte_Clicked" CornerRadius="10"  Grid.Column="2" Margin="0,-2,0,0"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

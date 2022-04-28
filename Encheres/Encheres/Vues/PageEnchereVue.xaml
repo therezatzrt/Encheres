@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Encheres.Controles.Converters"
+             x:Class="Encheres.Vues.PageEnchereVue">
+    <ContentPage.Resources>
+        <converters:IndexToColorConverter x:Key="IndexToColorConverterGrid"
+                                          EvenColor="Silver"
+                                          OddColor="White"/>
+
+        <converters:IndexToColorConverter x:Key="IndexToColorConverterText"
+                                          EvenColor="White"
+                                          OddColor="Black"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView x:Name="remote">
+
+
+
+            <StackLayout BackgroundColor="White">
+                <Label Text="Enchères Classiques" TextColor="White" FontSize="22" HorizontalTextAlignment="Center" BackgroundColor="#2E9AFE" WidthRequest="40" HeightRequest="40" Margin="0,1,0,0" />
+                
+
+
+                <Label Text="{Binding MonEnchere.LeProduit.Nom}"
+                   FontAttributes="Bold,Italic"
+                   FontSize="20"
+                   Margin="20"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+                <Frame
+                HeightRequest="380" WidthRequest="280"
+                BackgroundColor="white" Padding="0"
+                HasShadow="True" Margin="10" CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Image Source="{Binding MonEnchere.LeProduit.Photo}"
+                           VerticalOptions="FillAndExpand"
+                           Aspect="AspectFill"/>
+                    </StackLayout>
+
+                </Frame>
+                <Label Text="{Binding MonEnchere.PrixReserve,  StringFormat='Prix de Réserve : {0}'}" TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
+                <Label Text="{Binding MonEnchere.Datedebut, StringFormat='Date Début: {0}'}"
+                TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
+                <ContentView>
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="100" BackgroundColor="AliceBlue">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackLayout Orientation="Horizontal" Spacing="8">
+                                <Label Text="Temps restant" HorizontalOptions="CenterAndExpand"  FontSize="18" FontAttributes="Bold"  TextColor="Black"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal"  Grid.Row="1" HorizontalOptions="CenterAndExpand" Spacing="30">
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantJour}" FontSize="35" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label Text="JOURS" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantHeures}" FontSize="35" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label Text="HEURES" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantMinutes}" FontSize="35" FontAttributes="Bold" TextColor="black" HorizontalOptions="End"/>
+                                    <Label Text="MINUTES" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding TempsRestantSecondes}" FontSize="35" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label Text="SECONDES" FontSize="10" TextColor="Black" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <ContentView>
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="90" BackgroundColor="#FBFBEF">
+                        <Grid RowDefinitions="2*,2*" ColumnDefinitions="180" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                            <Label  Grid.Row="0" Text="Votre plafond :" HorizontalOptions="StartAndExpand"  FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                            <Entry x:Name="SaisiePlafond" Unfocused="SaisiePlafond_Unfocused"  Grid.Row=" 1"  HorizontalOptions="StartAndExpand" Placeholder="Saisir les secondes" PlaceholderColor="Black" TextColor="Black"/>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <ContentView>
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20,0,20,0" Padding="10" HeightRequest="90" BackgroundColor="#EFFBF8">
+                        <Grid RowDefinitions="2*,2*" ColumnDefinitions="240" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                            <Label  Grid.Row="0" Grid.Column="0" Text="Votre plage d'enchère auto :" HorizontalOptions="StartAndExpand"  FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                            <Entry x:Name="SaisieSecondes" Unfocused="SaisieSecondes_Unfocused"  Grid.Row=" 1" Grid.Column="0" HorizontalOptions="StartAndExpand" Placeholder="Saisir les secondes" PlaceholderColor="Black" TextColor="Black"/>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <ContentView>
+                    <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="100" BackgroundColor="#FBF5EF">
+                        <Grid RowDefinitions="2*,2*" ColumnDefinitions="180,100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                            <Label  Grid.Row=" 0" Grid.Column="0" Text="Votre proposition :" HorizontalOptions="StartAndExpand"  FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Grid.Row=" 0" Grid.Column="1" Text="{Binding PrixActuel.PrixEnchere, StringFormat='{0} €'}" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+
+                            <Entry x:Name="SaisieEnchere" Grid.Row=" 1" Grid.Column="0" HorizontalOptions="StartAndExpand" Placeholder="Saisir enchere" PlaceholderColor="Black" TextColor="Black"/>
+                            <Button x:Name="ButtonValiderEnchere" HorizontalOptions="StartAndExpand" Clicked="ButtonValiderEnchere_Clicked" BackgroundColor="#F8ECE0" Image="send_.png" Grid.Row="1" Grid.Column="1" Margin="20,0,0,0"/>
+                        </Grid>
+                    </Frame>
+                </ContentView>
+                <StackLayout>
+                    <Label Text="Les 6 dernièrs enchères"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="20"
+                       Margin="20"
+                       HorizontalOptions="Center"
+                       TextColor="Black"/>  
+                </StackLayout>
+                <ListView x:Name="MyCollectionView" ItemsSource="{Binding MaListeSixDernieresEncheres}" SeparatorVisibility="None" Grid.Row="3" Margin="20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="5,0,5,5">
+                                    <Grid HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="user.png" Margin="5,-6"/>
+                                        <Label Text="{Binding Pseudo}" Grid.Column="1" TextColor="Black" FontSize="15" WidthRequest="80"  HeightRequest="80" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        <StackLayout Grid.Column="2" Orientation="Horizontal" Margin="10,0" HorizontalOptions="End" VerticalOptions="Center">
+                                            <Label Text="{Binding PrixEnchere}" TextColor="Black" FontSize="20" FontAttributes="Bold" VerticalOptions="Center"/>
+                                            <Label Text="€" TextColor="Black" FontSize="20" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+                <Frame
+                    HeightRequest="50" WidthRequest="600"
+                BackgroundColor="white" Padding="10"
+                HasShadow="True" Margin="20,-200,20,0" CornerRadius="15"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout >
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Button Text="retour arrière" ImageSource="https://img.icons8.com/bubbles/100/000000/back.png" CornerRadius="10" Clicked="GoBack_Clicked" Margin="0,-2,0,0" />
+
+                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png"  Clicked="Button_Clicked" CornerRadius="10"  Grid.Column="2" Margin="0,-2,0,0"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+
