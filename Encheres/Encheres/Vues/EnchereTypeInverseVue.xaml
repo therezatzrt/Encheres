@@ -105,9 +105,9 @@
                                 <ColumnDefinition Width="*"/>
 
                             </Grid.ColumnDefinitions>
-                            <Button Text="retour arrière" ImageSource="https://img.icons8.com/bubbles/100/000000/back.png" CornerRadius="10" Clicked="GoBack_Clicked" Margin="0,-2,0,0" />
+                            <Button Text="retour arrière" ImageSource="https://img.icons8.com/bubbles/100/000000/back.png" BackgroundColor="Gray" CornerRadius="10" Clicked="GoBack_Clicked" Margin="0,-2,0,0" />
 
-                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png"  Clicked="Remonte_Clicked" CornerRadius="10"  Grid.Column="2" Margin="0,-2,0,0"/>
+                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png" BackgroundColor="Gray" Clicked="Remonte_Clicked" CornerRadius="10"  Grid.Column="2" Margin="0,-2,0,0"/>
                         </Grid>
                     </StackLayout>
                 </Frame>

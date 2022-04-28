@@ -13,7 +13,7 @@
                 HasShadow="True" Margin="10" CornerRadius="10"
                 HorizontalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="Center">
-                        <Button x:Name="classique" Clicked="classique_Clicked" CornerRadius="15" Text="Encheres Classiques en cours" Image="icons.png" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
+                        <Button x:Name="classique" Clicked="classique_Clicked" BackgroundColor="Gray" CornerRadius="15" Text="Encheres Classiques en cours" Image="icons.png" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
                     </StackLayout>
 
                 </Frame>
@@ -23,7 +23,7 @@
                 HasShadow="True" Margin="0" CornerRadius="10"
                 HorizontalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="Center">
-                        <Button x:Name="inverse" Clicked="inverse_Clicked"  CornerRadius="15" Text="Encheres inversées en cours" Image="icons.png" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
+                        <Button x:Name="inverse" Clicked="inverse_Clicked" BackgroundColor="Gray"  CornerRadius="15" Text="Encheres inversées en cours" Image="icons.png" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
 
                     </StackLayout>
 
@@ -34,7 +34,7 @@
                 HasShadow="True" Margin="10" CornerRadius="15"
                 HorizontalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="Center">
-                        <Button x:Name="flash" Clicked="flash_Clicked" CornerRadius="15" Text="Encheres flash en cours" Image="icons.png" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
+                        <Button x:Name="flash" Clicked="flash_Clicked" CornerRadius="15" BackgroundColor="Gray" Text="Encheres flash en cours" Image="icons.png" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
 
                     </StackLayout>
 
@@ -125,9 +125,7 @@
                                 <ColumnDefinition Width="*"/>
 
                             </Grid.ColumnDefinitions>
-                            <Button Text="retour arrière" ImageSource="https://img.icons8.com/bubbles/100/000000/back.png" CornerRadius="10" Clicked="GoBack_Clicked" Margin="0,-2,0,0" />
-
-                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png"  Clicked="Remonte_Clicked" CornerRadius="10"  Grid.Column="2" Margin="0,-2,0,0"/>
+                            <Button Text="remonte" ImageSource="https://img.icons8.com/clouds/100/000000/circled-up.png"  Clicked="Remonte_Clicked" BackgroundColor="Gray" CornerRadius="10"  Grid.Column="2" Margin="-80,-2,80,0"/>
                         </Grid>
                     </StackLayout>
                 </Frame>

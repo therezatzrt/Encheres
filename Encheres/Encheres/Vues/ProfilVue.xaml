@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Profil"
              x:Class="Encheres.Vues.ProfilVue">
     <ContentPage.Content>
 
@@ -12,7 +13,9 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Image Source="{Binding LeUser.PhotoStream}" Aspect="Fill" HeightRequest="200" VerticalOptions="StartAndExpand" BackgroundColor="CadetBlue"/>
+                    <Image Source="{Binding LeUser.PhotoStream}" Aspect="Fill" HeightRequest="200" VerticalOptions="StartAndExpand" BackgroundColor="#1C375C"/>
+                    <Image IsVisible="{Binding VisiblePhotoStream}" Source="Mee.jpeg" Aspect="Fill" HeightRequest="200" VerticalOptions="StartAndExpand" />
+
                     <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-50,20,0" Padding="18" HeightRequest="220" VerticalOptions="StartAndExpand">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Grid.RowDefinitions>
@@ -56,9 +59,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="1" Text="Déco" BackgroundColor="CadetBlue" TextColor="White" Margin="20,0,25,30"  CornerRadius="10" Clicked="OnClickDeconnexion" />
+                    <Button Grid.Row="1" Text="Déconnexion" BackgroundColor="#DF0101" ImageSource="https://img.icons8.com/ios-glyphs/60/000000/logout-rounded-down.png"  HorizontalOptions="Center" TextColor="White" Margin="100,0,-100,10"  CornerRadius="10" Clicked="OnClickDeconnexion" />
                 </Grid>
             </StackLayout>
         </ScrollView>

@@ -46,6 +46,7 @@ namespace Encheres.Vues
             }
         }
 
+
         private void classique_Clicked(object sender, EventArgs e)
         {
             vueModel.VisibleEnchereEnCoursTypeClassique = true;
@@ -54,6 +55,7 @@ namespace Encheres.Vues
 
         }
 
+
         private void inverse_Clicked(object sender, EventArgs e)
         {
             vueModel.VisibleEnchereEnCoursTypeClassique = false;
@@ -61,22 +63,28 @@ namespace Encheres.Vues
             vueModel.VisibleEnchereEnCoursTypeFlash = false;
         }
 
+
         private void flash_Clicked(object sender, EventArgs e)
         {
             vueModel.VisibleEnchereEnCoursTypeClassique = false;
             vueModel.VisibleEnchereEnCoursTypeInverse = false;
             vueModel.VisibleEnchereEnCoursTypeFlash = true;
         }
+
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await remote.ScrollToAsync(0, 0, true);
 
         }
+
+
         private void collViewInverse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var current = (Enchere)e.CurrentSelection.FirstOrDefault();
             Application.Current.MainPage = new EnchereTypeInverseVue(current);
         }
+
 
         private void collViewFlash_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -84,14 +92,17 @@ namespace Encheres.Vues
             Application.Current.MainPage = new EnchereTypeFlashVue(current);
 
         }
+
+
         private async void Remonte_Clicked(object sender, EventArgs e)
         {
             await remote.ScrollToAsync(0, 0, true);
         }
-        private void GoBack_Clicked(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new ListeEnchereVue();
 
-        }
+
+        //private void GoBack_Clicked(object sender, EventArgs e)
+        //{
+           // Application.Current.MainPage = new ListeEnchereVue();
+        //}
     }
 }

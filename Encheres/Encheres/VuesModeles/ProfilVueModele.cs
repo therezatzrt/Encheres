@@ -12,16 +12,29 @@ namespace Encheres.VuesModeles
         private string _idUser;
         private readonly Api _apiServices = new Api();
         private User _UnUser;
+        bool _visiblePhotoStream = false;
 
         public ProfilVueModele()
         {
             GetUser();
         }
-        public string IdUser { get => _idUser; set => _idUser = value; }
+
+        public string IdUser
+        { 
+                get => _idUser; 
+                set => _idUser = value; 
+        }
+
         public User UnUser
         {
             get { return _UnUser; }
             set { SetProperty(ref _UnUser, value); }
+        }
+
+        public bool VisiblePhotoStream
+        {
+            get => _visiblePhotoStream;
+            set { SetProperty(ref _visiblePhotoStream, value); }
         }
 
 

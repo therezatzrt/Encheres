@@ -14,15 +14,15 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.BackgroundColor" Value="Transparent" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Gray"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#2196f3"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -30,9 +30,9 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="" Icon="https://img.icons8.com/material-outlined/24/000000/home-page.png" Route="Accueil" ContentTemplate="{DataTemplate local:AccueilPageVue}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" Route="ListeEnchereVue" ContentTemplate="{DataTemplate local:ListeEnchereVue}" />
-        <ShellContent Title="Profil" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:LoginPageVue}" />
+        <ShellContent Title="Accueil" Icon="https://img.icons8.com/material-outlined/24/000000/home-page.png" Route="Accueil" ContentTemplate="{DataTemplate local:AccueilPageVue}" />
+        <ShellContent Title="Enchères" Icon="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/000000/external-auction-business-smashingstocks-hand-drawn-black-smashing-stocks.png" Route="ListeEnchereVue" ContentTemplate="{DataTemplate local:ListeEnchereVue}" />
+        <ShellContent Title="Profil" Icon="https://img.icons8.com/ios/100/000000/user--v1.png" ContentTemplate="{DataTemplate local:LoginPageVue}" />
 
     </TabBar>
 
