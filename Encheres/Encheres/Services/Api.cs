@@ -103,6 +103,38 @@ namespace Encheres.Services
                 return default(T);
             }
         }
+
+        ///  <summary>
+        ///  Cette methode est générique
+        ///  Cette méthode permet de recuperer la liste de toutes les occurences de la table.
+        ///
+        ///  </summary>
+        ///  <typeparam name="T">la classe concernée</typeparam>
+        ///  <param name="paramUrl">l'adresse de l'API</param>
+        ///  <param name="paramId">Correspond à l'Id de l'object</param>
+        /// <param name="param2">correspond à l'id de l'objet
+        ///  <returns>la liste des occurences selon l'id  du type de l'enchère</returns>
+        public async Task<T> GetOneAsyncByID<T>(string paramUrl, List<T> param, object paramId)
+        {
+
+
+            try
+            {
+                string jsonString = @"{'Id':'" + paramId + "'}";
+                JObject getResult = JObject.Parse(jsonString);
+                var clientHttp = new HttpClient();
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
+                T res = JsonConvert.DeserializeObject<T>(json);
+                return res;
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
+        }
+
         public async Task<ObservableCollection<T>> GetAllAsyncID<T>(string paramUrl, List<T> param, string cle, int param2)
         {
 

@@ -43,7 +43,7 @@ namespace Encheres.VuesModeles
         public async void GetUser()
         {
             IdUser = await SecureStorage.GetAsync("ID");
-            //UnUser = await _apiServices.GetOneAsyncByID<User>("api/getUser", User.CollClasse, IdUser.ToString());
+            UnUser = await _apiServices.GetOneAsyncByID<User>("api/getUser", User.CollClasse, IdUser.ToString());
 
         }
     }
