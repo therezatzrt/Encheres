@@ -29,7 +29,7 @@
                         <Frame  BackgroundColor="Transparent"  BorderColor="LightGray" CornerRadius="20" Margin="40,260,40,40">
                             <StackLayout>
                                 <Frame Padding="0" CornerRadius="100" HeightRequest="200"   WidthRequest="200" HorizontalOptions="Center" BackgroundColor="Transparent"  IsClippedToBounds="True">
-                                    <Image Source="{Binding UnUser.PhotoStream}"/>
+                                    <Image x:Name="imgProfil" Source="{Binding UnUser.PhotoStream}"/>
                                 </Frame>
                                 <Frame Padding="0" CornerRadius="100" HeightRequest="300"   WidthRequest="300" HorizontalOptions="Center" BackgroundColor="Transparent"  IsClippedToBounds="True">
                                     <Image IsVisible="{Binding VisiblePhotoStream}" Source="user.png"/>

@@ -86,6 +86,7 @@ namespace Encheres.VuesModeles
                     auth = true;
                 Storage.StockerMotDePasse(connexion.Id.ToString());
                 Constantes.Connected = true;
+                User.currentUser = connexion;
                     await Shell.Current.GoToAsync($"//{nameof(ListeEnchereVue)}");
 
                 }

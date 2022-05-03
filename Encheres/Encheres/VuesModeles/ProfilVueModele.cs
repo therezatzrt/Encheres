@@ -27,8 +27,8 @@ namespace Encheres.VuesModeles
 
         public User UnUser
         {
-            get { return _UnUser; }
-            set { SetProperty(ref _UnUser, value); }
+            get { return User.currentUser; }
+            set { SetProperty(ref User.currentUser, value); }
         }
 
         public bool VisiblePhotoStream
@@ -43,7 +43,7 @@ namespace Encheres.VuesModeles
         public async void GetUser()
         {
             IdUser = await SecureStorage.GetAsync("ID");
-            UnUser = await _apiServices.GetOneAsyncByID<User>("api/getUser", User.CollClasse, IdUser.ToString());
+            
 
         }
     }

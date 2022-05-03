@@ -11,6 +11,8 @@ namespace Encheres.Modeles
     {
         #region Attributs
         public static List<User> CollClasse = new List<User>();
+        public static User currentUser;
+
         private int id;
         private string _email;
         private string _photo;

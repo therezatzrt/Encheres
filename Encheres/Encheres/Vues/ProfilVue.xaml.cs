@@ -13,10 +13,12 @@ namespace Encheres.Vues
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilVue : ContentPage
     {
+        ProfilVueModele VueModele;
         public ProfilVue ()
         {
             InitializeComponent();
-            BindingContext = new ProfilVueModele();
+            BindingContext = VueModele = new ProfilVueModele();
+
 
         }
         private void OnClickDeconnexion ( object sender, EventArgs e )
@@ -25,10 +27,18 @@ namespace Encheres.Vues
             //présent dans le cache de l'application.
             SecureStorage.Remove("ID");
             SecureStorage.Remove("PSEUDO");
+            Constantes.Connected = false;
 
+            VueModele.UnUser = null;
             //On redirige l'utilisateur vers la page de connexion de l'application
-            Navigation.PushAsync(new LoginPageVue());
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Shell.Current.GoToAsync($"//{nameof(LoginPageVue)}");
         }
+
+/*        protected override void OnDisappearing()
+        {
+            Application.Current.MainPage.Navigation.PopAsync();
+        }*/
 
        
     }

@@ -1,5 +1,6 @@
 ﻿using Encheres.ViewModels;
 using Encheres.Vues;
+using Encheres.VuesModeles;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -14,5 +15,6 @@ namespace Encheres
            
         }
 
+      
     }
 }

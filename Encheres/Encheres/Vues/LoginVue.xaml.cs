@@ -35,7 +35,7 @@ namespace Encheres.Vues
 
             protected async override void OnAppearing()
             {
-                if (Constantes.Connected) await Application.Current.MainPage.Navigation.PushAsync(new ProfilVue());
+            if (Constantes.Connected == true) await Application.Current.MainPage.Navigation.PushAsync(new ProfilVue());
             }
         
     }

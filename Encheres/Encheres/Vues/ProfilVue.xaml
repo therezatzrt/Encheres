@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Profil"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="Encheres.Vues.ProfilVue">
     <ContentPage.Content>
 
@@ -13,24 +14,24 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Image Source="{Binding LeUser.PhotoStream}" Aspect="Fill" HeightRequest="200" VerticalOptions="StartAndExpand" BackgroundColor="#1C375C"/>
-                    <Image IsVisible="{Binding VisiblePhotoStream}" Source="Mee.jpeg" Aspect="Fill" HeightRequest="200" VerticalOptions="StartAndExpand" />
+                    
+                    <Frame HeightRequest="250" BackgroundColor="#1C375C" >
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <controls:CircleImage Source="{Binding UnUser.PhotoStream}" Margin="0,-40,0,0" WidthRequest="200" HeightRequest="200" Aspect="AspectFill" />
 
-                    <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-50,20,0" Padding="18" HeightRequest="220" VerticalOptions="StartAndExpand">
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-50,20,0" Padding="18" HeightRequest="160" VerticalOptions="StartAndExpand">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <StackLayout Orientation="Vertical" Spacing="6" HorizontalOptions="CenterAndExpand">
-                                <Label Text="{Binding LeUser.Pseudo}" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding LeUser.Id}" FontSize="12" TextColor="#2C3E50" HorizontalOptions="CenterAndExpand"/>
-                                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
-                                    <Image Source="https://img.icons8.com/ios/50/000000/email-open.png" WidthRequest="20" HeightRequest="15" VerticalOptions="Center"/>
-                                    <Label Text="{Binding LeUser.Email}" TextColor="#34495E" FontSize="14" FontAttributes="Bold" VerticalOptions="Center"/>
-                                </StackLayout>
+                                <Label Text="{Binding UnUser.Pseudo}" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
                             </StackLayout>
-                            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" Margin="0,-30,10,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -38,15 +39,15 @@
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
                                     <Image Source="https://img.icons8.com/bubbles/50/000000/user.png" WidthRequest="45" HeightRequest="45" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding LeUser.Pseudo}" TextColor="#2C3E50" FontAttributes="Bold" FontSize="12" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding UnUser.Pseudo}" TextColor="#2C3E50" FontAttributes="Bold" FontSize="12" HorizontalOptions="Center"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
                                     <Image Source="https://img.icons8.com/bubbles/50/000000/contact-card.png" WidthRequest="45" HeightRequest="45" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding LeUser.Id}" TextColor="#2C3E50" FontSize="12" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding UnUser.Id}" TextColor="#2C3E50" FontSize="12" FontAttributes="Bold" HorizontalOptions="Center"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="2" Orientation="Vertical" Spacing="12" HorizontalOptions="CenterAndExpand">
                                     <Image Source="https://img.icons8.com/bubbles/50/000000/comments.png" WidthRequest="45" HeightRequest="45" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding LeUser.Email}" TextColor="#2C3E50" FontSize="12" FontAttributes="Bold" HorizontalOptions="Center" Margin="-5"/>
+                                    <Label Text="{Binding UnUser.Email}" TextColor="#2C3E50" FontSize="12" FontAttributes="Bold" HorizontalOptions="Center" Margin="-5"/>
                                 </StackLayout>
                             </Grid>
                         </Grid>
@@ -61,7 +62,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="1" Text="Déconnexion" BackgroundColor="#DF0101" ImageSource="https://img.icons8.com/ios-glyphs/60/000000/logout-rounded-down.png"  HorizontalOptions="Center" TextColor="White" Margin="100,0,-100,10"  CornerRadius="10" Clicked="OnClickDeconnexion" />
+                    <Button Grid.Row="1" Text="Déconnexion" BackgroundColor="#DF0101" ImageSource="https://img.icons8.com/ios-glyphs/60/000000/logout-rounded-down.png"  HorizontalOptions="Center" TextColor="White" Margin="100,-10,-100,10"  CornerRadius="10" Clicked="OnClickDeconnexion" />
                 </Grid>
             </StackLayout>
         </ScrollView>
