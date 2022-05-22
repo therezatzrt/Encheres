@@ -24,6 +24,8 @@ namespace Encheres.VuesModeles
         private int _tempsRestantSecondes;
         private ObservableCollection<Encherir> _maListeSixDernieresEncheres;
         private Encherir _prixActuel;
+        private double _prixHT;
+        private double _prixTVA;
         private string _idUser;
         private float _plafond;
         private float _saisieSecondes;
@@ -41,6 +43,8 @@ namespace Encheres.VuesModeles
             this.SixDernieresEncheres();
         }
         #endregion
+
+
         #region Getters/Setters
 
         public Enchere MonEnchere
@@ -81,6 +85,21 @@ namespace Encheres.VuesModeles
             set { SetProperty(ref _prixActuel, value); }
         }
 
+
+        public double PrixHT
+        {
+            get { return _prixHT; }
+            set { SetProperty(ref _prixHT, value); }
+        }
+
+        public double PrixTVA
+        {
+            get { return _prixTVA; }
+            set { SetProperty(ref _prixTVA, value); }
+        }
+
+
+
         public string IdUser
         {
             get => _idUser;
@@ -104,8 +123,21 @@ namespace Encheres.VuesModeles
             set { SetProperty(ref _saisieSecondes, value); }
         }
 
+
         #endregion
         #region methodes
+
+        public void GetPrixHT()
+        {
+            PrixHT = PrixActuel.PrixEnchere / 1.2;
+        }
+
+        public void GetPrixTVA()
+        {
+            PrixTVA = PrixActuel.PrixEnchere - PrixHT;
+        }
+
+
 
         // méthode pour calculer le temps restant de lenchère en cours 
 
@@ -167,12 +199,14 @@ namespace Encheres.VuesModeles
                 while (true)
                 {
                     PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, MonEnchere.Id.ToString());
+                    GetPrixHT();
+                    GetPrixTVA();
                     Encherir.CollClasse.Clear();
                     Thread.Sleep(20000);
                 }
 
-            });
 
+            });
 
         }
         // méthode pour récuperer les six dernièrs encherir de l'utilisateur 

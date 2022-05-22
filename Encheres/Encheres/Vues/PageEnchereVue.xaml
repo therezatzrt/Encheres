@@ -46,6 +46,29 @@
                 <Label Text="{Binding MonEnchere.Datedebut, StringFormat='Date Début: {0}'}"
                 TextColor="Black"
                 HorizontalOptions="CenterAndExpand" />
+
+                <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <BoxView Grid.RowSpan="2" WidthRequest="80" Margin="8" BackgroundColor="#EFFBF8"/>
+                    <BoxView Grid.Column="1" Margin="0,8,8,8" Grid.RowSpan="2" WidthRequest="80" BackgroundColor="#FBF5EF"/>
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Prix HT" TextColor="#455399" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding PrixHT}" TextColor="#455399" FontSize="12" HorizontalOptions="Center" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Prix TVA" TextColor="#455399" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding PrixTVA}" TextColor="#455399" FontSize="12" HorizontalOptions="Center" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+
                 <ContentView>
                     <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="100" BackgroundColor="AliceBlue">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

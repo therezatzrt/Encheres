@@ -18,11 +18,15 @@ namespace Encheres.Modeles
         private TypeEncheres leTypeEnchere;
         private Produit leProduit;
 
+
+        private double _prixHT;
+        private double _prixTVA;
+
         #endregion
 
         #region Constructeurs
 
-        public Enchere(int id, DateTime datedebut, DateTime datefin, double prixReserve,  TypeEncheres leTypeEnchere = null, Produit leProduit = null)
+        public Enchere(int id, DateTime datedebut, DateTime datefin, double prixReserve, double prixHT, double prixTVA, TypeEncheres leTypeEnchere = null, Produit leProduit = null)
         {
             Enchere.CollClasse.Add(this);
             this._id = id;
@@ -32,6 +36,8 @@ namespace Encheres.Modeles
             //this.prix_enchere = prix_enchere;
             this.leTypeEnchere = leTypeEnchere;
             this.leProduit = leProduit;
+            this._prixHT = prixHT;
+            this._prixTVA = prixTVA;
         }
 
         #endregion
@@ -44,9 +50,15 @@ namespace Encheres.Modeles
         //public double Prix_enchere { get => prix_enchere; set => prix_enchere = value; }
         public TypeEncheres LeTypeEnchere { get => leTypeEnchere; set => leTypeEnchere = value; }
         public Produit LeProduit { get => leProduit; set => leProduit = value; }
+        public double PrixHT { get => _prixHT; set => _prixHT = value; }
+        public double PrixTVA { get => _prixTVA; set => _prixTVA = value; }
         #endregion
 
+
+
         #region Methodes
+
+       
 
         #endregion
     }
